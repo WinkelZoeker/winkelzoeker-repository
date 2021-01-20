@@ -2,6 +2,9 @@
 <p>
 </p>
 
+## Mongo instance
+
+export ENCRYPTION_KEY=XXXXXXXX
 
 ## References
 
