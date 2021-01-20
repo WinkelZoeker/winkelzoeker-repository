@@ -1,21 +1,3 @@
-# version: '3'
-# services:
-#   mongo:
-#     image: winkelzoeker/winkelzoeker-db
-#     container_name: 'winkelzoeker-mongodb'
-#     restart: always
-#     ports:
-#       - 27017:27017
-#     volumes:
-#       - ~/data:/data/db
-#     expose:
-#       - 27017
-#   adminmongo:
-#     image: mrvautin/adminmongo
-#     ports:
-#       - 1234:1234
-#     environment:
-#       - HOST=0.0.0.0
 version: '3.1'
 
 services:
@@ -30,7 +12,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=winkelzoeker-root
       - MONGO_INITDB_ROOT_PASSWORD=winkelzoeker-passwd
     volumes:
-      - ~/data:/data/db
+      - ../data/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro      
   mongo-express:
     image: mongo-express
     restart: always

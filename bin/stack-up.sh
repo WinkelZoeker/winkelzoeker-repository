@@ -2,6 +2,12 @@
 
 set -e
 
+
+echo 'Decrypting file...'
+./decrypt-mongo-seed.sh
+echo 'Done!'
+
+
 # Set the environment (Database, MQTT, etc)
 echo -ne "Building docker-compose stack..." 
 # docker-compose -f ./stack/docker-compose.yml up -d  > /dev/null 2>&1
