@@ -8,6 +8,7 @@ echo 'Decrypting file...'
 echo 'Done!'
 
 
+
 # Set the environment (Database, MQTT, etc)
 echo -ne "Building docker-compose stack..." 
 # docker-compose -f ./stack/docker-compose.yml up -d  > /dev/null 2>&1
@@ -23,4 +24,7 @@ while !(nc -z localhost 27017) && [[ $COUNTER -lt 60 ]] ; do
     echo "Waiting for mongo to initialize... ($COUNTER seconds so far)..."
 done
 
-
+echo 'Deleting secret files...'
+rm ../data/stores.json 2> /dev/null
+rm ../data/stores.js 2> /dev/null
+echo "Done!" 
